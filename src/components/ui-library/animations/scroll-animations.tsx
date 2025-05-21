@@ -118,7 +118,7 @@ export function ScrollAnimation({
   }, [controls, inView, once])
 
   return (
-    <motion.div ref={ref} className={className} initial="hidden" animate={controls}>
+    <motion.div ref={ref} className={className} initial="hidden" animate={controls} variants={getVariants()}>
       {children}
     </motion.div>
   )
