@@ -48,10 +48,10 @@ export function ScrollAnimation({
     }
 
     // Handle fade animation
-    if (type === "fade" || type === "slide") {
-      variants.hidden.opacity = 0
-      variants.visible.opacity = 1
-    }
+    // if (type === "fade" || type === "slide") {
+    //   variants.hidden.opacity = 0
+    //   variants.visible.opacity = 1
+    // }
 
     // Handle slide animation
     if (type === "slide") {
