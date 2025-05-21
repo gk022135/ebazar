@@ -41,73 +41,73 @@ export function ScrollAnimation({
   const [ref, inView] = useInView({ triggerOnce: once, threshold })
 
   // Define animation variants
-  const getVariants = () => {
-    const variants: { hidden: Variant; visible: Variant } = {
-      hidden: {},
-      visible: {},
-    }
+  // const getVariants = () => {
+  //   const variants: { hidden: Variant; visible: Variant } = {
+  //     hidden: {},
+  //     visible: {},
+  //   }
 
-    // Handle fade animation
-    // if (type === "fade" || type === "slide") {
-    //   variants.hidden.opacity = 0
-    //   variants.visible.opacity = 1
-    // }
+  //   // Handle fade animation
+  //   // if (type === "fade" || type === "slide") {
+  //   //   variants.hidden.opacity = 0
+  //   //   variants.visible.opacity = 1
+  //   // }
 
-    // Handle slide animation
-    if (type === "slide") {
-      switch (direction) {
-        case "up":
-          variants.hidden.y = distance
-          variants.visible.y = 0
-          break
-        case "down":
-          variants.hidden.y = -distance
-          variants.visible.y = 0
-          break
-        case "left":
-          variants.hidden.x = distance
-          variants.visible.x = 0
-          break
-        case "right":
-          variants.hidden.x = -distance
-          variants.visible.x = 0
-          break
-      }
-    }
+  //   // Handle slide animation
+  //   if (type === "slide") {
+  //     switch (direction) {
+  //       case "up":
+  //         variants.hidden.y = distance
+  //         variants.visible.y = 0
+  //         break
+  //       case "down":
+  //         variants.hidden.y = -distance
+  //         variants.visible.y = 0
+  //         break
+  //       case "left":
+  //         variants.hidden.x = distance
+  //         variants.visible.x = 0
+  //         break
+  //       case "right":
+  //         variants.hidden.x = -distance
+  //         variants.visible.x = 0
+  //         break
+  //     }
+  //   }
 
-    // Handle scale animation
-    if (type === "scale") {
-      variants.hidden.scale = 0.8
-      variants.visible.scale = 1
-    }
+  //   // Handle scale animation
+  //   if (type === "scale") {
+  //     variants.hidden.scale = 0.8
+  //     variants.visible.scale = 1
+  //   }
 
-    // Handle rotate animation
-    if (type === "rotate") {
-      variants.hidden.rotate = direction === "left" ? -90 : 90
-      variants.visible.rotate = 0
-    }
+  //   // Handle rotate animation
+  //   if (type === "rotate") {
+  //     variants.hidden.rotate = direction === "left" ? -90 : 90
+  //     variants.visible.rotate = 0
+  //   }
 
-    // Handle flip animation
-    if (type === "flip") {
-      if (direction === "up" || direction === "down") {
-        variants.hidden.rotateX = direction === "down" ? 90 : -90
-        variants.visible.rotateX = 0
-      } else {
-        variants.hidden.rotateY = direction === "right" ? 90 : -90
-        variants.visible.rotateY = 0
-      }
-    }
+  //   // Handle flip animation
+  //   if (type === "flip") {
+  //     if (direction === "up" || direction === "down") {
+  //       variants.hidden.rotateX = direction === "down" ? 90 : -90
+  //       variants.visible.rotateX = 0
+  //     } else {
+  //       variants.hidden.rotateY = direction === "right" ? 90 : -90
+  //       variants.visible.rotateY = 0
+  //     }
+  //   }
 
-    // Add transition to visible state
-    variants.visible.transition = {
-      duration,
-      delay,
-      ease,
-      staggerChildren: staggerChildren ? staggerDelay : 0,
-    }
+  //   // Add transition to visible state
+  //   variants.visible = {
+  //     duration,
+  //     delay,
+  //     ease,
+  //     staggerChildren: staggerChildren ? staggerDelay : 0,
+  //   }
 
-    return variants
-  }
+  //   return variants
+  // }
 
   useEffect(() => {
     if (inView) {
@@ -118,7 +118,7 @@ export function ScrollAnimation({
   }, [controls, inView, once])
 
   return (
-    <motion.div ref={ref} className={className} initial="hidden" animate={controls} variants={getVariants()}>
+    <motion.div ref={ref} className={className} initial="hidden" animate={controls}>
       {children}
     </motion.div>
   )
